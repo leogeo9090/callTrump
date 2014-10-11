@@ -200,7 +200,7 @@ func writePostsPage() {
 	writeLayout(&b, "All posts – " + siteTitle())
 	b.WriteString("<p><a href=\"index.html\">←</a></p>")
 	b.WriteString("<h1>All posts</h1>")
-	b.WriteString("<ul>")
+	b.WriteString("<nav><ul>")
 
 	for i := 0; i < len(posts); i++ {
 
@@ -213,7 +213,7 @@ func writePostsPage() {
 
 	}
 
-	b.WriteString("</ul><p><a href=\"index.html\">←</a></p>")
+	b.WriteString("</ul></nav><p><a href=\"index.html\">←</a></p>")
 	b.WriteString("</div></body></html>")
 	writeFile("all-posts", b)
 }
