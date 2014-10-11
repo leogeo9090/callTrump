@@ -41,7 +41,7 @@ func getHeader(title string) string {
 					text-decoration: underline;
 				}
 
-				ul {
+				nav ul {
 					list-style-type: none;
 					padding: 0;
 				}
@@ -143,7 +143,7 @@ func writeLayout(b *bytes.Buffer, title string) {
 }
 
 func writePostsSection(b *bytes.Buffer) {
-	b.WriteString("<h2>Posts</h2><ul>")
+	b.WriteString("<h2>Posts</h2><nav><ul>")
 
 	posts := getDir("_posts")
 
@@ -156,11 +156,11 @@ func writePostsSection(b *bytes.Buffer) {
 			title + "</a></li>\n")
 	}
 
-	b.WriteString("</ul><p><a href=\"all-posts.html\">All posts</a></p>")
+	b.WriteString("</ul></nav><p><a href=\"all-posts.html\">All posts</a></p>")
 }
 
 func writePagesSection(b *bytes.Buffer) {
-	b.WriteString("<h2>Pages</h2><ul>")
+	b.WriteString("<h2>Pages</h2><nav><ul>")
 
 	pages := getDir("_pages")
 
@@ -172,7 +172,7 @@ func writePagesSection(b *bytes.Buffer) {
 			title + "</a></li>\n")
 	}
 
-	b.WriteString("</ul>")
+	b.WriteString("</nav></ul>")
 }
 
 func writePosts() {
