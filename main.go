@@ -20,6 +20,8 @@ func getHeader(title string) string {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>` + title + `</title>
 			<style>
+				@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
 				#page {
 					margin: 2.5em auto;
 					max-width: 30em;
@@ -53,7 +55,7 @@ func getHeader(title string) string {
 				  color: #333;
 				  font-weight: 400;
 				  line-height: 1.45;
-				  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+				  font-family: 'Open Sans', sans-serif;
 				  text-rendering: optimizeLegibility;
 				}
 
