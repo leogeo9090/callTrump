@@ -10,7 +10,7 @@ import (
 )
 
 func siteTitle() string {
-	return strings.Split(string(getFile("header.md")), "\n")[0][2:]
+	return strings.Split(string(getFile("_sections/header.md")), "\n")[0][2:]
 }
 
 func getHeader(title string) string {
@@ -116,20 +116,20 @@ func getDir(dir string) []os.FileInfo {
 func GetPostMeta(fi os.FileInfo) (string, string, string) {
 	id := fi.Name()[:len(fi.Name()) - 3]
 	date := fi.Name()[0:10]
-	title := strings.Split(string(getFile("posts/" + fi.Name())), "\n")[0][2:]
+	title := strings.Split(string(getFile("_posts/" + fi.Name())), "\n")[0][2:]
 
 	return id, date, title
 }
 
 func GetPageMeta(fi os.FileInfo) (string, string) {
 	id := fi.Name()[:len(fi.Name()) - 3]
-	title := strings.Split(string(getFile("pages/" + fi.Name())), "\n")[0][2:]
+	title := strings.Split(string(getFile("_pages/" + fi.Name())), "\n")[0][2:]
 
 	return id, title
 }
 
 func writeFile(fileName string, b bytes.Buffer) {
-	err := ioutil.WriteFile("out/" + fileName + ".html", b.Bytes(), 0644)
+	err := ioutil.WriteFile(fileName + ".html", b.Bytes(), 0644)
 
 	if err != nil {
 		panic(err)
@@ -143,7 +143,7 @@ func writeLayout(b *bytes.Buffer, title string) {
 func writePostsSection(b *bytes.Buffer) {
 	b.WriteString("<h2>Posts</h2><ul>")
 
-	posts := getDir("posts")
+	posts := getDir("_posts")
 
 	for i := len(posts) - 1; i >= 0; i-- {
 		fileName, date, title := GetPostMeta(posts[i])
@@ -160,7 +160,7 @@ func writePostsSection(b *bytes.Buffer) {
 func writePagesSection(b *bytes.Buffer) {
 	b.WriteString("<h2>Pages</h2><ul>")
 
-	pages := getDir("pages")
+	pages := getDir("_pages")
 
 	for i := 0; i < len(pages); i++ {
 		id, title := GetPageMeta(pages[i])
@@ -174,7 +174,7 @@ func writePagesSection(b *bytes.Buffer) {
 }
 
 func writePosts() {
-	posts := getDir("posts")
+	posts := getDir("_posts")
 
 	for i := 0; i < len(posts); i++ {
 		var b bytes.Buffer
@@ -184,7 +184,7 @@ func writePosts() {
 		writeLayout(&b, title + " – " + siteTitle())
 		b.WriteString("<p><a href=\"../index.html\">←</a></p>")
 		b.WriteString("<p class=\"font_small\">" + date + "</p>")
-		b.Write(blackfriday.MarkdownBasic(getFile("posts/" + posts[i].Name())))
+		b.Write(blackfriday.MarkdownBasic(getFile("_posts/" + posts[i].Name())))
 		b.WriteString("<p><a href=\"../index.html\">←</a></p></div></body></html>")
 
 		writeFile("posts/" + id, b)
@@ -192,7 +192,7 @@ func writePosts() {
 }
 
 func writePostsPage() {
-	posts := getDir("posts")
+	posts := getDir("_posts")
 	var b bytes.Buffer
 
 	writeLayout(&b, "All posts – " + siteTitle())
@@ -217,7 +217,7 @@ func writePostsPage() {
 }
 
 func writePages() {
-	pages := getDir("pages")
+	pages := getDir("_pages")
 
 	for i := 0; i < len(pages); i++ {
 		var b bytes.Buffer
@@ -226,7 +226,7 @@ func writePages() {
 
 		writeLayout(&b, title + " – " + siteTitle())
 		b.WriteString("<p><a href=\"../index.html\">←</a></p>")
-		b.Write(blackfriday.MarkdownBasic(getFile("pages/" + pages[i].Name())))
+		b.Write(blackfriday.MarkdownBasic(getFile("_pages/" + pages[i].Name())))
 		b.WriteString("<p><a href=\"../index.html\">←</a></p></div></body></html>")
 
 		writeFile("pages/" + fileName, b)
@@ -234,9 +234,13 @@ func writePages() {
 }
 
 func createFilesAndDirs() {
-	if _, err := os.Stat("header.md"); os.IsNotExist(err) {
+	os.MkdirAll("_sections", 0755)
+	os.MkdirAll("_posts", 0755)
+	os.MkdirAll("_pages", 0755)
+
+	if _, err := os.Stat("_sections/header.md"); os.IsNotExist(err) {
 		err := ioutil.WriteFile(
-			"header.md",
+			"_sections/header.md",
 			[]byte("# Title\n\nDescription"),
 			0644)
 
@@ -246,10 +250,8 @@ func createFilesAndDirs() {
 	}
 
 	if _, err := os.Stat("posts"); os.IsNotExist(err) {
-		os.MkdirAll("posts", 0755)
-
 		err := ioutil.WriteFile(
-			"posts/" + time.Now().Format("2006-01-02") + "-initial-post.md",
+			"_posts/" + time.Now().Format("2006-01-02") + "-initial-post.md",
 			[]byte("# Initial post\n\nThis is the initial post."),
 			0644)
 
@@ -259,10 +261,8 @@ func createFilesAndDirs() {
 	}
 
 	if _, err := os.Stat("pages"); os.IsNotExist(err) {
-		os.MkdirAll("pages", 0755)
-
 		err := ioutil.WriteFile(
-			"pages/about.md",
+			"_pages/about.md",
 			[]byte("# About\n\nThis is the about page."),
 			0644)
 
@@ -270,9 +270,9 @@ func createFilesAndDirs() {
 			panic(err)
 		}
 	}
-	os.MkdirAll("out", 0755)
-	os.MkdirAll("out/posts", 0755)
-	os.MkdirAll("out/pages", 0755)
+
+	os.MkdirAll("posts", 0755)
+	os.MkdirAll("pages", 0755)
 }
 
 func main() {
@@ -280,7 +280,7 @@ func main() {
 
 	var b bytes.Buffer
 	writeLayout(&b, siteTitle())
-	b.Write(blackfriday.MarkdownBasic(getFile("header.md")))
+	b.Write(blackfriday.MarkdownBasic(getFile("_sections/header.md")))
 	writePostsSection(&b)
 	writePagesSection(&b)
 	b.WriteString("</div></body></html>")
