@@ -1,0 +1,5 @@
+# simple-website
+
+## License
+
+BSD
