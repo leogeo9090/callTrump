@@ -1,6 +1,6 @@
 # simple-website
 
-*simple-website* is a static site generator written in Go. It takes Markdown as input, and gives you a static, simple, and responsive website as output. Posts and pages are supported.
+simple-website is a static site generator written in Go. It takes Markdown as input, and gives you a static, simple, and responsive website as output. Posts and pages are supported.
 
 simple-website has been designed with technical simplicity and readability in mind – there are no configuration options and no themes to choose from. The workflow is simple – initialize a website using `simple-website`, create and/or edit Markdown files, run `simple-website` again – and publish.
 
