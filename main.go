@@ -51,7 +51,7 @@ func getHeader(title string) string {
 				}
 
 				body {
-				  background-color: #fff;
+				  background-color: #f9f9f9;
 				  color: #333;
 				  font-weight: 400;
 				  line-height: 1.45;
