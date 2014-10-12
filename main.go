@@ -191,10 +191,9 @@ func writePosts() {
 	posts := getDir("_posts")
 
 	for i := 0; i < len(posts); i++ {
-		var b bytes.Buffer
-
 		id, date, title := getPostMeta(posts[i])
 
+		var b bytes.Buffer
 		writeLayout(&b, title + " – " + siteTitle())
 		b.WriteString("<p><a href=\"../index.html\">←</a></p>")
 		b.WriteString("<p>" + date + "</p>")
@@ -233,10 +232,9 @@ func writePages() {
 	pages := getDir("_pages")
 
 	for i := 0; i < len(pages); i++ {
-		var b bytes.Buffer
-
 		fileName, title := getPageMeta(pages[i])
 
+		var b bytes.Buffer
 		writeLayout(&b, title + " – " + siteTitle())
 		b.WriteString("<p><a href=\"../index.html\">←</a></p>")
 		b.Write(blackfriday.MarkdownBasic(getFile("_pages/" + pages[i].Name())))
