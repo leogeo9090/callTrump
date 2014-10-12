@@ -1,12 +1,13 @@
 package main
 
 import (
-	"os"
-	"io/ioutil"
 	"bytes"
+	"github.com/russross/blackfriday"
+	"io/ioutil"
+	"math"
+	"os"
 	"strings"
 	"time"
-	"github.com/russross/blackfriday"
 )
 
 func getLayout(title string) string {
@@ -142,12 +143,23 @@ func writeLayout(b *bytes.Buffer, title string) {
 	b.WriteString(getLayout(title))
 }
 
+func writeIndex() {
+	var b bytes.Buffer
+	writeLayout(&b, siteTitle())
+	b.Write(blackfriday.MarkdownBasic(getFile("_sections/header.md")))
+	writePostsSection(&b)
+	writePagesSection(&b)
+	b.WriteString("</div></body></html>")
+	writeFile("index", b)
+}
+
 func writePostsSection(b *bytes.Buffer) {
 	b.WriteString("<h2>Posts</h2><nav><ul>")
 
 	posts := getDir("_posts")
+	limit := int(math.Max(float64(len(posts)) - 5, 0))
 
-	for i := len(posts) - 1; i >= 0; i-- {
+	for i := len(posts) - 1; i >= limit; i-- {
 		fileName, date, title := getPostMeta(posts[i])
 
 		b.WriteString("<li><a href=\"posts/" +
@@ -185,7 +197,7 @@ func writePosts() {
 
 		writeLayout(&b, title + " – " + siteTitle())
 		b.WriteString("<p><a href=\"../index.html\">←</a></p>")
-		b.WriteString("<p class=\"font_small\">" + date + "</p>")
+		b.WriteString("<p>" + date + "</p>")
 		b.Write(blackfriday.MarkdownBasic(getFile("_posts/" + posts[i].Name())))
 		b.WriteString("<p><a href=\"../index.html\">←</a></p></div></body></html>")
 
@@ -277,20 +289,10 @@ func createFilesAndDirs() {
 	os.MkdirAll("pages", 0755)
 }
 
-func writeIndex() {
-	var b bytes.Buffer
-	writeLayout(&b, siteTitle())
-	b.Write(blackfriday.MarkdownBasic(getFile("_sections/header.md")))
-	writePostsSection(&b)
-	writePagesSection(&b)
-	b.WriteString("</div></body></html>")
-	writeFile("index", b)
-}
-
 func main() {
 	createFilesAndDirs()
 	writeIndex()
 	writePosts()
-	writePages()
 	writePostsPage()
+	writePages()
 }
