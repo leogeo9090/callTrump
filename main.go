@@ -9,7 +9,7 @@ import (
 	"github.com/russross/blackfriday"
 )
 
-func getHeader(title string) string {
+func getLayout(title string) string {
 	return `<html>
 		<head>
 			<meta charset="utf-8">
@@ -139,7 +139,7 @@ func getPageMeta(fi os.FileInfo) (string, string) {
 }
 
 func writeLayout(b *bytes.Buffer, title string) {
-	b.WriteString(getHeader(title))
+	b.WriteString(getLayout(title))
 }
 
 func writePostsSection(b *bytes.Buffer) {
