@@ -215,7 +215,6 @@ func writePostsPage() {
 	b.WriteString("<nav><ul>")
 
 	for i := len(posts) -1; i >= 0; i-- {
-
 		id, date, title := getPostMeta(posts[i])
 
 		b.WriteString("<li><a href=\"posts/" +
