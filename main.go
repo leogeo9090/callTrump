@@ -17,7 +17,8 @@ func getLayout(title string) string {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>` + title + `</title>
 			<style>
-				@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+				@import url(http://fonts.googleapis.com/css?family=Source+Serif+Pro);
+				@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 
 				#page {
 					margin: 2.5em auto;
@@ -43,26 +44,27 @@ func getLayout(title string) string {
 					padding: 0;
 				}
 
-				html {
-					font-size: 1em;
-				}
+				html {font-size: 1.125em;}
 
 				body {
 				  background-color: #f9f9f9;
 				  color: #333;
 				  font-weight: 400;
 				  line-height: 1.45;
-				  font-family: 'Open Sans', sans-serif;
+				  font-family: 'Source Serif Pro', serif;
 				  text-rendering: optimizeLegibility;
 				}
 
-				p {
-					margin-bottom: 1.3em;
+				code {
+				  font-family: 'Source Code Pro', monospace;
+				  font-size: 0.889em;
 				}
+
+				p {margin-bottom: 1.3em;}
 
 				h1, h2, h3, h4 {
 				  margin: 1.414em 0 0.5em;
-				  font-weight: 600;
+				  font-weight: inherit;
 				  line-height: 1.2;
 				}
 
@@ -71,17 +73,11 @@ func getLayout(title string) string {
 				  font-size: 1.602em;
 				}
 
-				h2 {
-					font-size: 1.424em;
-				}
+				h2 {font-size: 1.424em;}
 
-				h3 {
-					font-size: 1.266em;
-				}
+				h3 {font-size: 1.266em;}
 
-				h4 {
-					font-size: 1.125em;
-				}
+				h4 {font-size: 1.125em;}
 
 				pre {
 					background-color: #eee;
