@@ -1,5 +1,13 @@
 # Changelog
 
+## 2014-10-27 – 0.1.0
+
+* Change typeface from Open Sans to Source Serif Pro
+* Set monospace typeface to Source Code Pro
+* Use 18px as base font size
+* Use regular font weight for headings
+* Fix markup nesting issue
+
 ## 2014-10-12 – 0.0.3
 
 * Clean up markup
