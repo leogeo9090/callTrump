@@ -20,6 +20,46 @@ func getLayout(title string) string {
 				@import url(http://fonts.googleapis.com/css?family=Source+Serif+Pro);
 				@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
 
+				html {
+					font-size: 1.125em;
+				}
+
+				body {
+					background-color: #f9f9f9;
+					color: #333;
+					font-family: 'Source Serif Pro', serif;
+					font-weight: 400;
+					line-height: 1.45;
+					text-rendering: optimizeLegibility;
+				}
+
+				p {
+					margin-bottom: 1.3em;
+				}
+
+				h1, h2, h3, h4 {
+					font-weight: inherit;
+					line-height: 1.2;
+					margin: 1.414em 0 0.5em;
+				}
+
+				h1 {
+					font-size: 1.602em;
+					margin-top: 0;
+				}
+
+				h2 {
+					font-size: 1.424em;
+				}
+
+				h3 {
+					font-size: 1.266em;
+				}
+
+				h4 {
+					font-size: 1.125em;
+				}
+
 				#page {
 					margin: 2.5em auto;
 					max-width: 30em;
@@ -44,43 +84,13 @@ func getLayout(title string) string {
 					padding: 0;
 				}
 
-				html {font-size: 1.125em;}
-
-				body {
-				  background-color: #f9f9f9;
-				  color: #333;
-				  font-weight: 400;
-				  line-height: 1.45;
-				  font-family: 'Source Serif Pro', serif;
-				  text-rendering: optimizeLegibility;
+				pre {
+					background-color: #eee;
 				}
 
 				code {
-				  font-family: 'Source Code Pro', monospace;
-				  font-size: 0.889em;
-				}
-
-				p {margin-bottom: 1.3em;}
-
-				h1, h2, h3, h4 {
-				  margin: 1.414em 0 0.5em;
-				  font-weight: inherit;
-				  line-height: 1.2;
-				}
-
-				h1 {
-				  margin-top: 0;
-				  font-size: 1.602em;
-				}
-
-				h2 {font-size: 1.424em;}
-
-				h3 {font-size: 1.266em;}
-
-				h4 {font-size: 1.125em;}
-
-				pre {
-					background-color: #eee;
+					font-family: 'Source Code Pro', monospace;
+					font-size: 0.889em;
 				}
 			</style>
 		</head>
