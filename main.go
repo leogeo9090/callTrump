@@ -186,7 +186,7 @@ func writePagesSection(b *bytes.Buffer) {
 			title + "</a></li>\n")
 	}
 
-	b.WriteString("</nav></ul>")
+	b.WriteString("</ul></nav>")
 }
 
 func writePosts() {
