@@ -17,8 +17,8 @@ func getLayout(title string) string {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>` + title + `</title>
 			<style>
-				@import url(http://fonts.googleapis.com/css?family=Source+Serif+Pro);
-				@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro);
+				@import url(http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600);
+				@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
 
 				html {
 					font-size: 1.125em;
