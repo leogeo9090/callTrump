@@ -25,7 +25,7 @@ func getLayout(title string) string {
 				}
 
 				body {
-					background-color: #fff;
+					background-color: #rgb(255, 255, 255);
 					color: rgba(0, 0, 0, 0.87);
 					font-family: Roboto, sans-serif;
 					font-weight: 400;
@@ -39,7 +39,6 @@ func getLayout(title string) string {
 
 				h1 {
 					font-size: 1.602em;
-					margin-top: 0;
 				}
 
 				h2 {
