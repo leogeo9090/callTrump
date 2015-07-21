@@ -17,30 +17,24 @@ func getLayout(title string) string {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>` + title + `</title>
 			<style>
-				@import url(http://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600);
-				@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,600);
+				@import url(http://fonts.googleapis.com/css?family=Roboto:400,600);
+				@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400,600);
 
 				html {
 					font-size: 1.125em;
 				}
 
 				body {
-					background-color: #f9f9f9;
-					color: #333;
-					font-family: 'Source Serif Pro', serif;
+					background-color: #fff;
+					color: rgba(0, 0, 0, 0.87);
+					font-family: Roboto, sans-serif;
 					font-weight: 400;
-					line-height: 1.45;
+					line-height: 1.5;
 					text-rendering: optimizeLegibility;
 				}
 
-				p {
-					margin-bottom: 1.3em;
-				}
-
 				h1, h2, h3, h4 {
-					font-weight: inherit;
-					line-height: 1.2;
-					margin: 1.414em 0 0.5em;
+					font-weight: 600;
 				}
 
 				h1 {
@@ -62,21 +56,21 @@ func getLayout(title string) string {
 
 				#page {
 					margin: 2.5em auto;
-					max-width: 30em;
+					max-width: 35em;
 					padding: 0 0.5rem;
 				}
 
 				a {
 					text-decoration: none;
-					color: #03c;
-				}
-
-				a:visited {
-					color: #639;
+					color: rgb(21, 101, 192);
 				}
 
 				a:hover {
 					text-decoration: underline;
+				}
+
+				a:visited {
+					color: rgb(21, 101, 192);
 				}
 
 				nav ul {
@@ -84,12 +78,16 @@ func getLayout(title string) string {
 					padding: 0;
 				}
 
+				p.date {
+					color: rgba(0, 0, 0, 0.54);
+				}
+
 				pre {
-					background-color: #eee;
+					background-color: #f5f5f5;
 				}
 
 				code {
-					font-family: 'Source Code Pro', monospace;
+					font-family: 'Roboto Mono', monospace;
 					font-size: 0.889em;
 				}
 			</style>
@@ -198,7 +196,7 @@ func writePosts() {
 		var b bytes.Buffer
 		b.WriteString(getLayout(title + " – " + getSiteTitle()))
 		b.WriteString("<p><a href=\"../index.html\">←</a></p>")
-		b.WriteString("<p>" + date + "</p>")
+		b.WriteString("<p class=\"date\">" + date + "</p>")
 		b.Write(blackfriday.MarkdownBasic(getFile("_posts/" + posts[i].Name())))
 		b.WriteString("<p><a href=\"../index.html\">←</a></p></div></body></html>")
 
