@@ -1,5 +1,9 @@
 # Changelog
 
+## 2015-07-21 – 0.2.0
+
+* Redesign
+
 ## 2014-10-27 – 0.1.0
 
 * Change typeface from Open Sans to Source Serif Pro

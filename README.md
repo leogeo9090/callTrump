@@ -6,7 +6,7 @@ simple-website has been designed with technical simplicity and readability in mi
 
 ## Get it
 
-    go get github.com/alexanderte/simple-website
+    go get github.com/alexanderteinum/simple-website
 
 ## Initialize website
 
