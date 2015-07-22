@@ -26,7 +26,7 @@ func getLayout(title string) string {
 				}
 
 				body {
-					background-color: rgb(245, 245, 245);
+					background-color: rgb(250, 250, 250);
 					color: rgba(0, 0, 0, 0.87);
 					font-family: Roboto, sans-serif;
 					font-weight: 400;
