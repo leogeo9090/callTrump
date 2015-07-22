@@ -78,7 +78,7 @@ func getLayout(title string) string {
 					padding: 0;
 				}
 
-				p.date {
+				.date {
 					color: rgba(0, 0, 0, 0.54);
 					font-size: 0.889em;
 				}
@@ -163,9 +163,9 @@ func writePostsSection(b *bytes.Buffer) {
 	for i := len(posts) - 1; i >= limit; i-- {
 		fileName, date, title := getPostMeta(posts[i])
 
-		b.WriteString("<li><a href=\"posts/" +
+		b.WriteString("<li><span class=\"date\">" + date +
+			"</span>&nbsp;&nbsp;<a href=\"posts/" +
 			fileName + ".html\">" +
-			date + " – " +
 			title + "</a></li>\n")
 	}
 
@@ -217,11 +217,10 @@ func writePostsPage() {
 	for i := len(posts) -1; i >= 0; i-- {
 		id, date, title := getPostMeta(posts[i])
 
-		b.WriteString("<li><a href=\"posts/" +
+		b.WriteString("<li><span class=\"date\">" + date +
+			"</span>&nbsp;&nbsp;<a href=\"posts/" +
 			id + ".html\">" +
-			date + " – " +
 			title + "</a></li>\n")
-
 	}
 
 	b.WriteString("</ul></nav><p><a href=\"index.html\">←</a></p>")
