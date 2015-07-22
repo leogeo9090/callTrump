@@ -80,6 +80,7 @@ func getLayout(title string) string {
 
 				p.date {
 					color: rgba(0, 0, 0, 0.54);
+					font-size: 0.889em;
 				}
 
 				pre {
