@@ -1,5 +1,9 @@
 # Changelog
 
+## 2015-07-22 – 0.2.1
+
+* Fix issues
+
 ## 2015-07-21 – 0.2.0
 
 * Redesign
