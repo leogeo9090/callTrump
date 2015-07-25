@@ -18,7 +18,7 @@ func getLayout(title string) string {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>` + title + `</title>
 			<style>
-				@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700);
+				@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic,500italic,700italic);
 				@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400,700);
 
 				html {
