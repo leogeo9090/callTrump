@@ -18,24 +18,21 @@ func getLayout(title string) string {
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>` + title + `</title>
 			<style>
-				@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic,500italic,700italic);
-				@import url(http://fonts.googleapis.com/css?family=Roboto+Mono:400,700);
-
 				html {
-					font-size: 1.125em;
+					font-size: 1em;
 				}
 
 				body {
 					background-color: rgb(250, 250, 250);
 					color: rgba(0, 0, 0, 0.87);
-					font-family: Roboto, sans-serif;
+					font-family: sans-serif;
 					font-weight: 400;
 					line-height: 1.5;
 					text-rendering: optimizeLegibility;
 				}
 
 				h1, h2, h3, h4 {
-					font-weight: 500;
+					font-weight: 400;
 				}
 
 				h1 {
@@ -88,8 +85,7 @@ func getLayout(title string) string {
 				}
 
 				code {
-					font-family: 'Roboto Mono', monospace;
-					font-size: 0.889em;
+					font-family: monospace;
 				}
 			</style>
 		</head>
