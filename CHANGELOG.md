@@ -1,5 +1,9 @@
 # Changelog
 
+## 2016-01-01 – 1.0.0
+
+* Change fonts from Roboto to standard browser fonts
+
 ## 2015-07-22 – 0.2.1
 
 * Fix issues
