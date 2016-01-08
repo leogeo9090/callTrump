@@ -16,18 +16,21 @@ func getLayout(title string) string {
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+			<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+
 			<title>` + title + `</title>
 			<style>
 				html {
-					font-size: 1em;
+					font-size: 18px;
 				}
 
 				body {
-					background-color: rgb(250, 250, 250);
+					background-color: rgb(255, 255, 255);
 					color: rgba(0, 0, 0, 0.87);
-					font-family: sans-serif;
+					font-family: 'Source Sans Pro';
 					font-weight: 400;
-					line-height: 1.5;
+					line-height: 1.5625;
 					text-rendering: optimizeLegibility;
 				}
 
@@ -36,24 +39,24 @@ func getLayout(title string) string {
 				}
 
 				h1 {
-					font-size: 1.602em;
+					font-size: 1.602rem;
 				}
 
 				h2 {
-					font-size: 1.424em;
+					font-size: 1.424rem;
 				}
 
 				h3 {
-					font-size: 1.266em;
+					font-size: 1.266rem;
 				}
 
 				h4 {
-					font-size: 1.125em;
+					font-size: 1.125rem;
 				}
 
 				#page {
 					margin: 2.5em auto;
-					max-width: 35em;
+					max-width: 40.625rem;
 					padding: 0 0.5rem;
 				}
 
@@ -77,15 +80,16 @@ func getLayout(title string) string {
 
 				.date {
 					color: rgba(0, 0, 0, 0.54);
-					font-size: 0.889em;
+					font-size: 0.889rem;
 				}
 
 				pre {
-					background-color: #f5f5f5;
+					background-color: rgba(0, 0, 0, 0.03125);
 				}
 
 				code {
-					font-family: monospace;
+					font-family: 'Source Code Pro', monospace;
+					font-size: 0.889rem;
 				}
 			</style>
 		</head>
