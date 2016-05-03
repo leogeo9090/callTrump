@@ -101,11 +101,11 @@ func getLayout(title string) string {
 				}
 
 				nav.posts li {
-					margin-bottom: 1.5rem;
+					margin-bottom: 1.25rem;
 				}
 
 				nav.posts .date {
-					line-height: 1.125rem;
+					line-height: 1rem;
 				}
 
 				nav.pages li {
@@ -114,7 +114,7 @@ func getLayout(title string) string {
 
 				.date {
 					color: rgba(0, 0, 0, 0.54);
-					font-size: 0.889rem;
+					font-size: 0.8125rem;
 				}
 
 				pre {
