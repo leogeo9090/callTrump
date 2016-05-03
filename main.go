@@ -105,7 +105,7 @@ func getLayout(title string) string {
 				}
 
 				nav.posts .date {
-					line-height: 1rem;
+					line-height: 1.09375rem;
 				}
 
 				nav.pages li {
