@@ -16,42 +16,72 @@ func getLayout(title string) string {
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
-			<link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+			<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic' rel='stylesheet' type='text/css'>
+			<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic' rel='stylesheet' type='text/css'>
 
 			<title>` + title + `</title>
 			<style>
 				html {
-					font-size: 18px;
+					font-size: 17px;
+				}
+
+				@media (max-width: 600px) {
+					html {
+						font-size: 15px;
+					}
+
+					nav .date {
+						display: block;
+					}
+
+					nav ul li {
+						margin-bottom: 0.75rem;
+					}
 				}
 
 				body {
-					background-color: rgb(255, 255, 255);
+					background-color: #fafafa;
 					color: rgba(0, 0, 0, 0.87);
-					font-family: 'Source Sans Pro';
+					font-family: 'Roboto';
 					font-weight: 400;
-					line-height: 1.5625;
+					line-height: 1.75;
 					text-rendering: optimizeLegibility;
 				}
 
 				h1, h2, h3, h4 {
-					font-weight: 400;
+					font-weight: 500;
 				}
 
 				h1 {
-					font-size: 1.602rem;
+					font-size: 1rem;
+				}
+
+				h1:before {
+					content: '# '
 				}
 
 				h2 {
-					font-size: 1.424rem;
+					font-size: 1rem;
+				}
+
+				h2:before {
+					content: '## '
 				}
 
 				h3 {
-					font-size: 1.266rem;
+					font-size: 1rem;
+				}
+
+				h3:before {
+					content: '### '
 				}
 
 				h4 {
-					font-size: 1.125rem;
+					font-size: 1rem;
+				}
+
+				h4:before {
+					content: '#### '
 				}
 
 				#page {
@@ -62,7 +92,7 @@ func getLayout(title string) string {
 
 				a {
 					text-decoration: none;
-					color: rgb(21, 101, 192);
+					color: #ff1744;
 				}
 
 				a:hover {
@@ -70,7 +100,7 @@ func getLayout(title string) string {
 				}
 
 				a:visited {
-					color: rgb(21, 101, 192);
+					color: #ff1744;
 				}
 
 				nav ul {
@@ -81,14 +111,15 @@ func getLayout(title string) string {
 				.date {
 					color: rgba(0, 0, 0, 0.54);
 					font-size: 0.889rem;
+					margin-right: 0.5rem;
 				}
 
 				pre {
-					background-color: rgba(0, 0, 0, 0.03125);
+					background-color: #f5f5f5;
 				}
 
 				code {
-					font-family: 'Source Code Pro', monospace;
+					font-family: 'Roboto Mono', monospace;
 					font-size: 0.889rem;
 				}
 			</style>
@@ -164,7 +195,7 @@ func writePostsSection(b *bytes.Buffer) {
 		fileName, date, title := getPostMeta(posts[i])
 
 		b.WriteString("<li><span class=\"date\">" + date +
-			"</span>&nbsp;&nbsp;<a href=\"posts/" +
+			"</span><a href=\"posts/" +
 			fileName + ".html\">" +
 			title + "</a></li>\n")
 	}
