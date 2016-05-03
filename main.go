@@ -29,14 +29,6 @@ func getLayout(title string) string {
 					html {
 						font-size: 15px;
 					}
-
-					nav .date {
-						display: block;
-					}
-
-					nav ul li {
-						margin-bottom: 0.75rem;
-					}
 				}
 
 				body {
@@ -44,7 +36,7 @@ func getLayout(title string) string {
 					color: rgba(0, 0, 0, 0.87);
 					font-family: 'Roboto';
 					font-weight: 400;
-					line-height: 1.75;
+					line-height: 1.71875;
 					text-rendering: optimizeLegibility;
 				}
 
@@ -92,7 +84,7 @@ func getLayout(title string) string {
 
 				a {
 					text-decoration: none;
-					color: #ff1744;
+					color: #1976d2;
 				}
 
 				a:hover {
@@ -100,7 +92,7 @@ func getLayout(title string) string {
 				}
 
 				a:visited {
-					color: #ff1744;
+					color: #1976d2;
 				}
 
 				nav ul {
@@ -108,10 +100,21 @@ func getLayout(title string) string {
 					padding: 0;
 				}
 
+				nav.posts li {
+					margin-bottom: 1.5rem;
+				}
+
+				nav.posts .date {
+					line-height: 1.125rem;
+				}
+
+				nav.pages li {
+					margin-bottom: 0.5rem;
+				}
+
 				.date {
 					color: rgba(0, 0, 0, 0.54);
 					font-size: 0.889rem;
-					margin-right: 0.5rem;
 				}
 
 				pre {
@@ -186,7 +189,7 @@ func writeIndex() {
 }
 
 func writePostsSection(b *bytes.Buffer) {
-	b.WriteString("<h2>Posts</h2><nav><ul>")
+	b.WriteString("<h2>Posts</h2><nav class=\"posts\"><ul>")
 
 	posts := getDir("_posts")
 	limit := int(math.Max(float64(len(posts)) - 5, 0))
@@ -194,8 +197,8 @@ func writePostsSection(b *bytes.Buffer) {
 	for i := len(posts) - 1; i >= limit; i-- {
 		fileName, date, title := getPostMeta(posts[i])
 
-		b.WriteString("<li><span class=\"date\">" + date +
-			"</span><a href=\"posts/" +
+		b.WriteString("<li><div class=\"date\">" + date +
+			"</div><a href=\"posts/" +
 			fileName + ".html\">" +
 			title + "</a></li>\n")
 	}
@@ -204,7 +207,7 @@ func writePostsSection(b *bytes.Buffer) {
 }
 
 func writePagesSection(b *bytes.Buffer) {
-	b.WriteString("<h2>Pages</h2><nav><ul>")
+	b.WriteString("<h2>Pages</h2><nav class=\"pages\"><ul>")
 
 	pages := getDir("_pages")
 
@@ -243,13 +246,13 @@ func writePostsPage() {
 	b.WriteString(getLayout("All posts – " + getSiteTitle()))
 	b.WriteString("<p><a href=\"index.html\">←</a></p>")
 	b.WriteString("<h1>All posts</h1>")
-	b.WriteString("<nav><ul>")
+	b.WriteString("<nav class=\"posts\"><ul>")
 
 	for i := len(posts) -1; i >= 0; i-- {
 		id, date, title := getPostMeta(posts[i])
 
-		b.WriteString("<li><span class=\"date\">" + date +
-			"</span>&nbsp;&nbsp;<a href=\"posts/" +
+		b.WriteString("<li><div class=\"date\">" + date +
+			"</div><a href=\"posts/" +
 			id + ".html\">" +
 			title + "</a></li>\n")
 	}
