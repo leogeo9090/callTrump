@@ -1,5 +1,10 @@
 # Changelog
 
+## 2016-01-01 – 1.1.0
+
+* Refine design
+* Change fonts from default browser fonts to system fonts
+
 ## 2016-01-01 – 1.0.0
 
 * Change fonts from Roboto to standard browser fonts
