@@ -22,58 +22,38 @@ func getLayout(title string) string {
 			<title>` + title + `</title>
 			<style>
 				html {
-					font-size: 17px;
+					font-size: 18px;
 				}
 
-				@media (max-width: 600px) {
+				@media (max-width: 800px) {
 					html {
-						font-size: 15px;
+						font-size: 16px;
 					}
 				}
 
 				body {
-					background-color: #fafafa;
+					background-color: #fff;
 					color: rgba(0, 0, 0, 0.87);
-					font-family: 'Roboto';
+					font-family: -apple-system, BlinkMacSystemFont,  'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',  'Fira Sans', 'Droid Sans', 'Helvetica Neue',  sans-serif;
 					font-weight: 400;
-					line-height: 1.71875;
+					line-height: 1.640625;
 					text-rendering: optimizeLegibility;
 				}
 
-				h1, h2, h3, h4 {
+				h1, h2, h3 {
 					font-weight: 500;
 				}
 
 				h1 {
-					font-size: 1rem;
-				}
-
-				h1:before {
-					content: '# '
+					font-size: 1.296rem;
 				}
 
 				h2 {
-					font-size: 1rem;
-				}
-
-				h2:before {
-					content: '## '
+					font-size: 1.215rem;
 				}
 
 				h3 {
-					font-size: 1rem;
-				}
-
-				h3:before {
-					content: '### '
-				}
-
-				h4 {
-					font-size: 1rem;
-				}
-
-				h4:before {
-					content: '#### '
+					font-size: 1.138rem;
 				}
 
 				#page {
@@ -104,26 +84,23 @@ func getLayout(title string) string {
 					margin-bottom: 1.25rem;
 				}
 
-				nav.posts .date {
-					line-height: 1.09375rem;
-				}
-
 				nav.pages li {
 					margin-bottom: 0.5rem;
 				}
 
 				.date {
-					color: rgba(0, 0, 0, 0.54);
-					font-size: 0.8125rem;
+					font-size: 0.937rem;
 				}
 
 				pre {
 					background-color: #f5f5f5;
+					padding: 0.25rem;
+					line-height: 1.40625rem;
 				}
 
 				code {
-					font-family: 'Roboto Mono', monospace;
-					font-size: 0.889rem;
+					font-family: monospace;
+					font-size: 0.937rem;
 				}
 			</style>
 		</head>
