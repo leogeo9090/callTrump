@@ -16,9 +16,6 @@ func getLayout(title string) string {
 		<head>
 			<meta charset="utf-8">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic' rel='stylesheet' type='text/css'>
-			<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic,500,500italic' rel='stylesheet' type='text/css'>
-
 			<title>` + title + `</title>
 			<style>
 				html {
@@ -35,7 +32,6 @@ func getLayout(title string) string {
 					background-color: #fff;
 					color: rgba(0, 0, 0, 0.87);
 					font-family: -apple-system, BlinkMacSystemFont,  'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',  'Fira Sans', 'Droid Sans', 'Helvetica Neue',  sans-serif;
-					font-weight: 400;
 					line-height: 1.640625;
 					text-rendering: optimizeLegibility;
 				}
@@ -89,7 +85,9 @@ func getLayout(title string) string {
 				}
 
 				.date {
-					font-size: 0.937rem;
+					color: rgba(0, 0, 0, 0.54);
+					font-size: 0.878rem;
+					margin-bottom: -0.0625rem;
 				}
 
 				pre {
