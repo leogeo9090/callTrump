@@ -19,13 +19,7 @@ func getLayout(title string) string {
 			<title>` + title + `</title>
 			<style>
 				html {
-					font-size: 18px;
-				}
-
-				@media (max-width: 800px) {
-					html {
-						font-size: 16px;
-					}
+					font-size: 16px;
 				}
 
 				body {
