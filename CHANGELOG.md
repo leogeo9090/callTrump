@@ -1,5 +1,9 @@
 # Changelog
 
+## 2016-06-19 – 1.1.1
+
+* Remove responsive base size feature
+
 ## 2016-01-01 – 1.1.0
 
 * Refine design
